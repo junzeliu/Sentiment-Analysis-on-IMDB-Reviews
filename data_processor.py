@@ -15,5 +15,10 @@ VAL_PATH = './aclImdb/test/'
 
 reviews_train = load_files(TRAIN_PATH)
 data_train, targets_train = reviews_train.data, reviews_train.target
+print("Number of reviews: {}".format(type(data_train)))
+
+# remove line breakers
+data_train = [review.replace(b"<br />", b" ") for review in data_train]
+
 pdb.set_trace()
 
